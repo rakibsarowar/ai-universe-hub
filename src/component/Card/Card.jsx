@@ -5,6 +5,9 @@ const Card = () => {
     // Step 01: use State -----------------------------------------
     const [data, setData] = useState([]);
 
+    const [showAll, setShowAll] = useState(false);
+
+
     //Step 02: Use Effect Function --------------------------------
 
     useEffect(()=> {
@@ -25,9 +28,10 @@ const Card = () => {
     return (
         <>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-12 my-6'>
+            
             {
-            data.map((singleData)=>{
-                //console.log(signgleData)
+            data.slice(0,showAll ? 12 : 6).map((singleData)=>{
+                //console.log(singleData)
 
                 //Step06: sent data by props-----------------------
                 return <SingleData singleData ={singleData} key={singleData.id}></SingleData> 
